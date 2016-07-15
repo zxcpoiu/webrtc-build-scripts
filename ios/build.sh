@@ -103,6 +103,9 @@ function wrbase() {
     if [ "$WEBRTC_TARGET" != "AppRTCDemo" ]; then
         GYP_DEFINES="chromium_ios_signing=0"
     fi
+    if [ "$WEBRTC_STABLE_RELEASE" = "true" ]; then
+        GYP_DEFINES="$GYP_DEFINES include_tests=0 fastbuild=2"
+    fi
     export GYP_GENERATORS="ninja,xcode-ninja"
 }
 
