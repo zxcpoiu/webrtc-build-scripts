@@ -186,6 +186,10 @@ prepare_gyp_defines() {
         export GYP_DEFINES="$USER_GYP_DEFINES"
     fi
 
+    if [ "$WEBRTC_STABLE_RELEASE" = "true" ] ;
+    then
+        export GYP_DEFINES="$GYP_DEFINES include_tests=0 fastbuild=2"
+    fi
     echo "GYP_DEFINES=$GYP_DEFINES"
 }
 
