@@ -15,6 +15,10 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 PROJECT_DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
+export WEBRTC_DEPOT_TOOLS="/Users/zxcpoiu/git/webrtc-build-scripts/ios/depot_tools"
+export GYP_DEFINES="OS=ios"
+export PATH=$WEBRTC_DEPOT_TOOLS:${PATH}
+
 DEFAULT_WEBRTC_URL="https://chromium.googlesource.com/external/webrtc"
 DEFAULT_POD_URL="https://s3.amazonaws.com/libjingle"
 WEBRTC="$PROJECT_DIR/webrtc"

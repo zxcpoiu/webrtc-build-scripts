@@ -15,6 +15,10 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 PROJECT_ROOT="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
+export WEBRTC_DEPOT_TOOLS="~zxcpoiu/git/webrtc-build-scripts/android/depot_tools"
+export GYP_DEFINES="OS=android"
+export PATH=$WEBRTC_DEPOT_TOOLS:${PATH}
+
 # Utility method for creating a directory
 create_directory_if_not_found() {
 	# if we cannot find the directory
